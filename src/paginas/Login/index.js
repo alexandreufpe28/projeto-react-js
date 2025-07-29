@@ -1,14 +1,18 @@
 import { useState } from "react";
 import logo from "../../assets/treina_recife_logo.jpeg";
 import "./login.css";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
     const [email, setEmail] = useState("");
     const [senha, setSenha] = useState("");
     const [manterConectado, setManterConectado] = useState(true);
 
+    const navigate = useNavigate();
+
     const enviarFormulario = () => {
         console.log({ email, senha, manterConectado });
+        navigate("/home");
     }
 
     return (
@@ -58,7 +62,7 @@ function Login() {
                 </button>
             </div>
             
-            <a className="form-link" href="https://www.treinarecife.com.br/" target="_blank">Esqueci a senha</a>
+            <a className="form-link" href="https://www.treinarecife.com.br/" target="_blank" rel="noreferrer">Esqueci a senha</a>
         </div>
     )
 }
